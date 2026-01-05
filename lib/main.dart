@@ -1,28 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart'; // <- this should now exist
+import 'screens/role_selection.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  runApp(const MyApp());
+void main() {
+  runApp(const MessMasterApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MessMasterApp extends StatelessWidget {
+  const MessMasterApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Mess Master',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const Scaffold(
-        body: Center(child: Text('Firebase is ready!')),
-      ),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: RoleSelectionScreen(),
     );
   }
 }
